@@ -15,17 +15,17 @@ services:
       - PEERS=10 #optional
       - PEERDNS=auto #optional
       - PEER_IP=${PEER_IP:-10.13.13.2}
-      - PUBLIC_PORT=${PUBLIC_PORT:-8080}
-      - DEV_PORT=${DEV_PORT:-3000}
+      - FORWARD_PORTS=${FORWARD_PORTS:-80:80,443:443}
     #  - INTERNAL_SUBNET=10.13.13.0 #optional
     #  - ALLOWEDIPS=192.168.1.0/24,192.168.2.0/24 #optional
     volumes:
       - ./vpn-data:/config
-      - ./vpn-data/custom-cont-init.d:/custom-cont-init.d
+      # - ./custom-cont-init.d:/custom-cont-init.d
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp
-      - ${PUBLIC_PORT:-8080}:${PUBLIC_PORT:-8080}
+      - 80:80
+      - 443:443
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
       - net.ipv4.ip_forward=1
