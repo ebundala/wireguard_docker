@@ -21,6 +21,7 @@ services:
     #  - ALLOWEDIPS=192.168.1.0/24,192.168.2.0/24 #optional
     volumes:
       - ./vpn-data:/config
+      - ./vpn-data/custom-cont-init.d:/custom-cont-init.d
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp
