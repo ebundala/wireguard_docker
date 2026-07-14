@@ -18,6 +18,7 @@ echo "=========================================================="
 # Iterate over each PUBLIC_PORT:DEV_PORT pair
 IFS=',' read -ra MAPPINGS <<< "${FORWARD_PORTS}"
 for MAPPING in "${MAPPINGS[@]}"; do
+  
     PUBLIC_PORT="${MAPPING%%:*}"
     DEV_PORT="${MAPPING##*:}"
 
