@@ -1,2 +1,9 @@
+# Ignore everything
 *
+
+# Exception: .gitignore file itself
 !.gitignore
+
+# Exception: custom-cont-init.d directory and script
+!custom-cont-init.d/
+!custom-cont-init.d/forward-ports.sh
